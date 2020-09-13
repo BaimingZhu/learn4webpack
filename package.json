@@ -1,0 +1,20 @@
+{
+  "name": "learn4webpack",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:BaimingZhu/learn4webpack.git",
+  "author": "BaimingZhu <573514187@qq.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "dev": "webpack-dev-server"
+  },
+  "devDependencies": {
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "html-webpack-plugin": "^4.4.1"
+  }
+}
