@@ -10,10 +10,15 @@
     "dev": "webpack-dev-server"
   },
   "devDependencies": {
+    "autoprefixer": "^8.0.0",
     "css-loader": "^4.3.0",
     "less": "^3.12.2",
     "less-loader": "^7.0.1",
+    "mini-css-extract-plugin": "^1.0.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "postcss-loader": "^4.0.4",
     "style-loader": "^1.2.1",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"

@@ -3,14 +3,27 @@ let path = require('path')
 // console.log(path.resolve('dist'))
 
 let HtmlWebpackPlugin = require('html-webpack-plugin')
+let MiniCssExtractPlugin = require('mini-css-extract-plugin')
+let OptimizeCss = require('optimize-css-assets-webpack-plugin')
+let UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
+    optimization: {//优化项
+        minimizer:[
+            new UglifyJsPlugin({
+                cache: true,
+                parallel: true,
+                sourceMap: true
+            }),
+            new OptimizeCss()
+        ]
+    },
     devServer:{
         port:8080,
         progress:true,//进度
         contentBase:'./build'
     },
-    mode : 'development', //模式默认两种 production development
+    mode : 'production', //模式默认两种 production development
     entry: './src/index.js',//入口
     output : {
         filename:'budle.[hash:4].js',//打包后的文件名
@@ -20,7 +33,10 @@ module.exports = {
         new HtmlWebpackPlugin({
             template:'./src/index.html',
             filename:'index.html',
-            hash:true
+            hash:false //引用的js加上哈希值
+        }),
+        new MiniCssExtractPlugin({
+            filename: "[name].css",
         })
     ],
     module:{//模块
@@ -29,38 +45,17 @@ module.exports = {
                 {
                     test: /\.css$/, 
                     use: [
-                        {
-                            loader:'style-loader',
-                            options: {
-                                insert: function insertAtTop(element) {
-                                    var parent = document.querySelector('head');
-                                    // eslint-disable-next-line no-underscore-dangle
-                                    var lastInsertedElement =
-                                      window._lastElementInsertedByStyleLoader;
-                    
-                                    if (!lastInsertedElement) {
-                                      parent.insertBefore(element, parent.firstChild);
-                                    } else if (lastInsertedElement.nextSibling) {
-                                      parent.insertBefore(element, lastInsertedElement.nextSibling);
-                                    } else {
-                                      parent.appendChild(element);
-                                    }
-                    
-                                    // eslint-disable-next-line no-underscore-dangle
-                                    window._lastElementInsertedByStyleLoader = element;
-                                  },
-                            }
-                        },
-                        'css-loader'
+                        MiniCssExtractPlugin.loader,
+                        'css-loader',
+                        'postcss-loader'//加上前缀
                     ]
                 },
                 {
                     test: /\.less$/, 
                     use: [
-                        {
-                            loader:'style-loader',
-                        },
-                        'css-loader',
+                        MiniCssExtractPlugin.loader,
+                        'css-loader',//解释(interpret) @import 和 url() ，会 import/require() 后再解析(resolve)它们。
+                        'postcss-loader',//加上前缀
                         'less-loader'//把less转换成css
                     ]
                 }

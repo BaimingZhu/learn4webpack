@@ -24,3 +24,28 @@
 ## 安装html-webpack-plugin插件
 - yarn add html-webpack-plugin -D
 - 在webpack配置文件进行配置
+
+##  样式处理 安装css-loader
+- yarn add css-loader style-loader less-loader -D
+
+##  样式处理  把css抽离  自动加前缀
+- yarn add mini-css-extract-plugin -D
+- yarn add postcss-loader autoprefixer -D 
+
+##  压缩css
+- yarn add optimize-css-assets-webpack-plugin -D
+
+##  压缩js
+- yarn add uglifyjs-webpack-plugin -D
+
+
+
+
+
+
+
+
+
+## 运行命令，把资源地址设置成npm淘宝源（避免超时问题）
+- npm config set registry https://registry.npm.taobao.org
+- npm config set disturl https://npm.taobao.org/dist
