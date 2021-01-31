@@ -1,5 +1,4 @@
-const autoprefixer = require("autoprefixer");
-
+const autoprefixer = require("autoprefixer");//自动加前缀
 module.exports = {
     plugins:[
         require('autoprefixer')

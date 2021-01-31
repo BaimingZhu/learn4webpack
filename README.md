@@ -38,6 +38,11 @@
 ##  压缩js
 - yarn add uglifyjs-webpack-plugin -D
 
+## es6转es5
+- yarn add babel-loader @babel/core @babel/preset-env -D
+
+
+
 
 
 
