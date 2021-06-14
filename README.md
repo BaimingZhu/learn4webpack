@@ -41,9 +41,9 @@
 ## es6转es5
 - yarn add babel-loader @babel/core @babel/preset-env -D
 
-
-
-
+## es6转es5
+- yarn add @babel/plugin-proposal-class-properties -D
+- yarn add babel-loader @babel/plugin-proposal-decorators -D
 
 
 

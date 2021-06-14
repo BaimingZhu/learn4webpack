@@ -40,22 +40,8 @@ module.exports = {
         })
     ],
     module:{//模块
-        rules:[
-                {
-                    test:/\.js$/,
-                    use:{
-                        loader:'babel-loader',//es6转es5
-                        options:{
-                            presets:[
-                                '@babel/preset-env'
-                            ],
-                            plugins:[
-                                ["@babel/plugin-proposal-decorators", { "legacy": true }],
-                                ["@babel/plugin-proposal-class-properties"]
-                            ]
-                        }
-                    }
-                },
+        rules:[//规则 css-loader 接续 @import这种语法的
+                //规则 style-loader 把css插入到head支持在head的标签中
                 {
                     test: /\.css$/, 
                     use: [
