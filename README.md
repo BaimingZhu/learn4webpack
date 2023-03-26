@@ -23,6 +23,7 @@
 
 ## 安装html-webpack-plugin插件
 - yarn add html-webpack-plugin -D
+
 - 在webpack配置文件进行配置
 
 ##  样式处理 安装css-loader

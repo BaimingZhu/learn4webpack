@@ -6,6 +6,7 @@ let HtmlWebpackPlugin = require('html-webpack-plugin')
 let MiniCssExtractPlugin = require('mini-css-extract-plugin')
 let OptimizeCss = require('optimize-css-assets-webpack-plugin')
 let UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+let {CleanWebpackPlugin} = require('clean-webpack-plugin')
 
 module.exports = {
     optimization: {//优化项
@@ -21,9 +22,10 @@ module.exports = {
     devServer:{
         port:8080,
         progress:true,//进度
-        contentBase:'./build'
+        contentBase:'./build',
+        open: true//自动打开浏览器
     },
-    mode : 'development', //模式默认两种 production development
+    mode : 'production', //模式默认两种 production development
     entry: './src/index.js',//入口
     output : {
         filename:'budle.[hash:4].js',//打包后的文件名
@@ -33,11 +35,16 @@ module.exports = {
         new HtmlWebpackPlugin({
             template:'./src/index.html',
             filename:'index.html',
-            hash:false //引用的js加上哈希值
+            hash:true, //引用的js加上哈希值,
+            minify : {
+                removeAttributeQuotes : true,//去除标点符号
+                collapseWhitespace: true,//弄成一行
+            }
         }),
         new MiniCssExtractPlugin({
-            filename: "[name].css",
-        })
+            filename: "[name].[hash:4].css",
+        }),
+        new CleanWebpackPlugin()//自动清理打包目录
     ],
     module:{//模块
         rules:[
