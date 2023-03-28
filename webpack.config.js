@@ -25,7 +25,7 @@ module.exports = {
         contentBase:'./build',
         open: true//自动打开浏览器
     },
-    mode : 'production', //模式默认两种 production development
+    mode : 'development', //模式默认两种 production development
     entry: './src/index.js',//入口
     output : {
         filename:'budle.[hash:4].js',//打包后的文件名
