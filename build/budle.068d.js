@@ -86,38 +86,14 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/index.css":
-/*!***********************!*\
-  !*** ./src/index.css ***!
-  \***********************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack:///./src/index.css?");
-
-/***/ }),
-
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-eval("function _typeof(obj) { \"@babel/helpers - typeof\"; return _typeof = \"function\" == typeof Symbol && \"symbol\" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && \"function\" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? \"symbol\" : typeof obj; }, _typeof(obj); }\nvar _class;\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, \"prototype\", { writable: false }); return Constructor; }\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\nfunction _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }\nfunction _toPropertyKey(arg) { var key = _toPrimitive(arg, \"string\"); return _typeof(key) === \"symbol\" ? key : String(key); }\nfunction _toPrimitive(input, hint) { if (_typeof(input) !== \"object\" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || \"default\"); if (_typeof(res) !== \"object\") return res; throw new TypeError(\"@@toPrimitive must return a primitive value.\"); } return (hint === \"string\" ? String : Number)(input); }\n// let str = require('./a.js')\n\n// console.log('hello ' + str)\n\n__webpack_require__(/*! ./index.css */ \"./src/index.css\");\n__webpack_require__(/*! ./index.less */ \"./src/index.less\");\nvar fn = function fn() {\n  console.log('log');\n};\nfn();\nvar A = log(_class = /*#__PURE__*/_createClass(function A() {\n  _classCallCheck(this, A);\n  _defineProperty(this, \"a\", 1);\n})) || _class;\nvar a = new A();\nconsole.log('a->', a.a);\nfunction log(target) {\n  console.log(target, 213);\n}\n\n//# sourceURL=webpack:///./src/index.js?");
-
-/***/ }),
-
-/***/ "./src/index.less":
-/*!************************!*\
-  !*** ./src/index.less ***!
-  \************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack:///./src/index.less?");
+eval("throw new Error(\"Module build failed (from ./node_modules/eslint-loader/index.js):\\nSyntaxError: Cannot read config file: F:\\\\learn4webpack\\\\.eslintrc.json\\nError: Unexpected end of JSON input\\n    at JSON.parse (<anonymous>)\\n    at loadJSONConfigFile (F:\\\\learn4webpack\\\\node_modules\\\\eslint\\\\lib\\\\config\\\\config-file.js:114:21)\\n    at loadConfigFile (F:\\\\learn4webpack\\\\node_modules\\\\eslint\\\\lib\\\\config\\\\config-file.js:230:26)\\n    at loadFromDisk (F:\\\\learn4webpack\\\\node_modules\\\\eslint\\\\lib\\\\config\\\\config-file.js:523:18)\\n    at Object.load (F:\\\\learn4webpack\\\\node_modules\\\\eslint\\\\lib\\\\config\\\\config-file.js:587:20)\\n    at Config.getLocalConfigHierarchy (F:\\\\learn4webpack\\\\node_modules\\\\eslint\\\\lib\\\\config.js:240:44)\\n    at Config.getConfigHierarchy (F:\\\\learn4webpack\\\\node_modules\\\\eslint\\\\lib\\\\config.js:192:43)\\n    at Config.getConfigVector (F:\\\\learn4webpack\\\\node_modules\\\\eslint\\\\lib\\\\config.js:299:21)\\n    at Config.getConfig (F:\\\\learn4webpack\\\\node_modules\\\\eslint\\\\lib\\\\config.js:342:29)\\n    at processText (F:\\\\learn4webpack\\\\node_modules\\\\eslint\\\\lib\\\\cli-engine.js:181:33)\\n    at CLIEngine.executeOnText (F:\\\\learn4webpack\\\\node_modules\\\\eslint\\\\lib\\\\cli-engine.js:690:40)\\n    at lint (F:\\\\learn4webpack\\\\node_modules\\\\eslint-loader\\\\index.js:278:17)\\n    at Object.module.exports (F:\\\\learn4webpack\\\\node_modules\\\\eslint-loader\\\\index.js:273:21)\");\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 

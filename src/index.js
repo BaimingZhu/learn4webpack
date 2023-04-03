@@ -6,6 +6,7 @@ require('./index.css')
 
 require('./index.less')
 
+require('@babel/polyfill')
 
 let fn = () => {
     console.log('log')
@@ -18,9 +19,18 @@ class A {
     a = 1;
 }
 
-let  a = new A()
-console.log('a->', a.a )
-
 function log(target){
-    console.log(target, 213)
+    target.abc = 1
 }
+
+let  a = new A()
+console.log('a->', A.abc )
+
+
+function * gen(){
+    yield 1
+}
+
+console.log(gen().next())
+
+'aaa'.includes('a')
