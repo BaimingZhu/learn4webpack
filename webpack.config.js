@@ -8,6 +8,8 @@ let OptimizeCss = require('optimize-css-assets-webpack-plugin')
 let UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 let { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
+let webpack = require('webpack')
+
 module.exports = {
     optimization: {//优化项
         minimizer: [
@@ -23,7 +25,7 @@ module.exports = {
         port: 8080,
         progress: true,//进度
         contentBase: './build',
-        open: true//自动打开浏览器
+        // open: true//自动打开浏览器
     },
     mode: 'development', //模式默认两种 production development
     entry: './src/index.js',//入口
@@ -31,6 +33,9 @@ module.exports = {
         filename: 'budle.[hash:4].js',//打包后的文件名
         path: path.resolve(__dirname, 'build'),//路径必须是一个绝对路径
     },
+    // externals: {
+    //     jquery: '$'
+    // },
     plugins: [//放着所有的webpoack插件
         new HtmlWebpackPlugin({
             template: './src/index.html',
@@ -44,24 +49,33 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: "[name].[hash:4].css",
         }),
-        new CleanWebpackPlugin()//自动清理打包目录
+        // new webpack.ProvidePlugin({//在每个模块注入jQuery，但不在window上存在
+        //     $: 'jquery'
+        // }),
+        new CleanWebpackPlugin(),//自动清理打包目录
     ],
     module: {//模块
         rules: [
             //校验js的  先关闭  最后用到 修改
-            {
-                test: /\.js$/,
-                use: [
-                    {
-                        loader: 'eslint-loader',
-                        options: {
-                            enforce: 'pre'
-                            //强制 pre 之前执行  post 之后  未设置为普通的loader
-                        }
-                    }
-                ],
-                exclude: /node_modules/
-            },
+            // {
+            //     test: /\.js$/,
+            //     use: [
+            //         {
+            //             loader: 'eslint-loader',
+            //             options: {
+            //                 enforce: 'pre'
+            //                 //强制 pre 之前执行  post 之后  未设置为普通的loader
+            //             }
+            //         }
+            //     ],
+            //     exclude: /node_modules/
+            // },
+            // {
+            //     // 添加loader规则 就不再需要import $ from 'expose-loader?$!jquery' 这样 直接 import
+            //     test: require.resolve('jquery'),
+            //     use: 'expose-loader?$',
+            //     // exclude: /node_modules/
+            // },
             {
                 test: /\.js$/,
                 use: {

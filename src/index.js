@@ -1,36 +1,47 @@
-// let str = require('./a.js')
+// import $ from 'jquery'
+//默认 是 立即执行函数的loader 不会暴露全局变量
+//expose-loader  暴露全局的loader  内联的loader
+//pre  post normal 
 
-// console.log('hello ' + str)
+// 暴露出去 下边是写法规范
+import $ from 'jquery'
+// import $ from 'expose-loader?$!jquery'
+console.log($)
+console.log(window.$)
 
-require('./index.css')
+// // let str = require('./a.js')
 
-require('./index.less')
+// // console.log('hello ' + str)
 
-require('@babel/polyfill')
+// require('./index.css')
 
-let fn = () => {
-    console.log('log')
-}
+// require('./index.less')
 
-fn()
+// require('@babel/polyfill')
 
-@log
-class A {
-    a = 1;
-}
+// let fn = () => {
+//     console.log('log')
+// }
 
-function log(target){
-    target.abc = 1
-}
+// fn()
 
-let  a = new A()
-console.log('a->', A.abc )
+// @log
+// class A {
+//     a = 1;
+// }
+
+// function log(target){
+//     target.abc = 1
+// }
+
+// let  a = new A()
+// console.log('a->', A.abc )
 
 
-function * gen(){
-    yield 1
-}
+// function * gen(){
+//     yield 1
+// }
 
-console.log(gen().next())
+// console.log(gen().next())
 
-'aaa'.includes('a')
+// 'aaa'.includes('a')
