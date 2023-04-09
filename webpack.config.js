@@ -56,6 +56,27 @@ module.exports = {
     ],
     module: {//模块
         rules: [
+            {
+                test: /\.html$/,
+                use: 'html-withimg-loader'//处理html本身就引入的图片
+              },
+            {
+                test: /\.(png|jpg|gif)$/, 
+                //做一个限制  当小于多少k 用base64来转化 base64文件可以减少http请求 但是比原文件大3分之1
+                // 否则用file-loader来产生真实的图片
+                use: {
+                  loader: 'url-loader',
+                  options: {
+                    limit: 50 * 1024,//小于50kb的图片将转化为base64
+                    //输出的路径
+                    outputPath: 'img/',
+                  }
+                }
+              },
+            // {
+            //     test : /\.(png|jpg|gif)/,
+            //     use : 'file-loader'
+            // },
             //校验js的  先关闭  最后用到 修改
             // {
             //     test: /\.js$/,

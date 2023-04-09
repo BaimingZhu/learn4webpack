@@ -1,13 +1,20 @@
+
+import logo_img from './logo.jpg'
+var img = new Image()
+img.src = logo_img
+document.querySelector('body').appendChild(img)
+
+
 // import $ from 'jquery'
 //默认 是 立即执行函数的loader 不会暴露全局变量
 //expose-loader  暴露全局的loader  内联的loader
 //pre  post normal 
 
 // 暴露出去 下边是写法规范
-import $ from 'jquery'
+// import $ from 'jquery'
 // import $ from 'expose-loader?$!jquery'
-console.log($)
-console.log(window.$)
+// console.log($)
+// console.log(window.$)
 
 // // let str = require('./a.js')
 
@@ -15,7 +22,7 @@ console.log(window.$)
 
 // require('./index.css')
 
-// require('./index.less')
+require('./index.less')
 
 // require('@babel/polyfill')
 
