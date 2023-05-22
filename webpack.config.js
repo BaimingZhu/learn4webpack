@@ -9,6 +9,7 @@ let UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 let { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 let webpack = require('webpack')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
     optimization: {//优化项
@@ -53,6 +54,7 @@ module.exports = {
         //     $: 'jquery'
         // }),
         new CleanWebpackPlugin(),//自动清理打包目录
+        ...(process.env.NODE_ENV !== "production" ? [new BundleAnalyzerPlugin()]: [])
     ],
     module: {//模块
         rules: [
