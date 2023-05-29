@@ -37,7 +37,7 @@ module.exports = {
     // externals: {
     //     jquery: '$'
     // },
-    plugins: [//放着所有的webpoack插件
+    plugins: [//放着所有的webpack插件
         new HtmlWebpackPlugin({
             template: './src/index.html',
             filename: 'index.html',
@@ -54,14 +54,14 @@ module.exports = {
         //     $: 'jquery'
         // }),
         new CleanWebpackPlugin(),//自动清理打包目录
-        ...(process.env.NODE_ENV !== "production" ? [new BundleAnalyzerPlugin()]: [])
+        // ...(process.env.NODE_ENV !== "production" ? [new BundleAnalyzerPlugin()]: []),//统计打包后的文件大小，用于优化
     ],
     module: {//模块
         rules: [
             {
                 test: /\.html$/,
-                use: 'html-withimg-loader'//处理html本身就引入的图片
-              },
+                use: 'html-withimg-loader'//处理html本身就引入的图片, 变成base64
+            },
             {
                 test: /\.(png|jpg|gif)$/, 
                 //做一个限制  当小于多少k 用base64来转化 base64文件可以减少http请求 但是比原文件大3分之1
@@ -74,10 +74,10 @@ module.exports = {
                     outputPath: 'img/',
                   }
                 }
-              },
+            },
             // {
             //     test : /\.(png|jpg|gif)/,
-            //     use : 'file-loader'
+            //     use : 'file-loader'//用了url-loader就不用file-loade
             // },
             //校验js的  先关闭  最后用到 修改
             // {
