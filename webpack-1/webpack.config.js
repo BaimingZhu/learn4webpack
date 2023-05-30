@@ -48,7 +48,7 @@ module.exports = {
             }
         }),
         new MiniCssExtractPlugin({
-            filename: "[name].[hash:4].css",
+            filename: "css/[name].[hash:4].css",
         }),
         // new webpack.ProvidePlugin({//在每个模块注入jQuery，但不在window上存在
         //     $: 'jquery'
@@ -69,7 +69,7 @@ module.exports = {
                 use: {
                   loader: 'url-loader',
                   options: {
-                    limit: 50 * 1024,//小于50kb的图片将转化为base64
+                    limit: 30 * 1024,//小于50kb的图片将转化为base64
                     //输出的路径
                     outputPath: 'img/',
                   }
