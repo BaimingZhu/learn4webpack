@@ -9,12 +9,15 @@
 // new Log()
 
 
-let xhr = new XMLHttpRequest()
+// let xhr = new XMLHttpRequest()
 
-xhr.open('GET', '/api/user', true)
+// xhr.open('GET', '/api/user', true)
 
-xhr.onload = function() {
-    console.log(xhr.response)
-}
+// xhr.onload = function() {
+//     console.log(xhr.response)
+// }
 
-xhr.send()
+// xhr.send()
+
+import 'bootstrap'
+import './style'

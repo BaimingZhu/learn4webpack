@@ -16,6 +16,10 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            },
+            {
                 test: /\.js&/,
                 use: {
                     loader: 'babel-loader',
@@ -74,6 +78,17 @@ module.exports = {
         // ),
         // new webpack.BannerPlugin('make by zhu'),//给每个js首行加注释
     ],
+    resolve: {//解析第三方包common
+        modules: [path.resolve('node_modules')],
+        //或者用 mainFields  入口的字段 先找style 再找main
+        // mainFiles: [],//入口文件的名字 默认找index.js
+        mainFields: ['style', 'main'],
+        //扩展名 可以省略 需配置 extensions  依次解析
+        extensions: ['.js', '.css', '.json']
+        // alias: {
+        //     bootstrap: 'bootstrap/dist/css/bootstrap.css'
+        // }
+    },
     devServer: {
         //这时 服务器为 /api/user
         // proxy : {
