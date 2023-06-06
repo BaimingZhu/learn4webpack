@@ -3,7 +3,6 @@ let base    = require('./webpack.config.js')
 
 
 module.exports = smart(base, {
-    model : 'development',
-    devServer: {},
-    devtool:'source-map',
+    mode : 'development',
+    devtool:'source-map'
 })
