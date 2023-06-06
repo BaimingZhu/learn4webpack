@@ -77,14 +77,19 @@ module.exports = {
         //     [{from:'./doc',to:'./'}]
         // ),
         // new webpack.BannerPlugin('make by zhu'),//给每个js首行加注释
+
+        //定义环境变量
+        new webpack.DefinePlugin({
+            DEV : JSON.stringify('production')
+        })
     ],
     resolve: {//解析第三方包common
         modules: [path.resolve('node_modules')],
-        //或者用 mainFields  入口的字段 先找style 再找main
-        // mainFiles: [],//入口文件的名字 默认找index.js
-        mainFields: ['style', 'main'],
         //扩展名 可以省略 需配置 extensions  依次解析
         extensions: ['.js', '.css', '.json']
+        // mainFields  入口的字段 先找style 再找main
+        // mainFiles: [],//入口文件的名字 默认找index.js
+        // mainFields: ['style', 'main'],
         // alias: {
         //     bootstrap: 'bootstrap/dist/css/bootstrap.css'
         // }

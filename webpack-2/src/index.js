@@ -19,5 +19,14 @@
 
 // xhr.send()
 
-import 'bootstrap'
-import './style'
+// import 'bootstrap'
+// import './style'
+
+
+let url = '';
+if(DEV != 'production'){
+    url = 'http://localhost:3000'
+}else{
+    url = 'http://localhost:80'
+}
+console.log(url, '---', DEV)
