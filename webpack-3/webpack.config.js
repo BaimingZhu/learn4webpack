@@ -1,6 +1,9 @@
 const path = require('path')
-let HtmlWebpackPlugin = require('html-webpack-plugin')
-let webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack')
+
+// 模块happypack 可以实现多线程来打包 进程（node中线程与进程关系） 打包文件会加快（文件很小时可能会变慢）
+const Happypack = require('happypack')
 
 module.exports = {
     mode: 'development',
@@ -16,6 +19,8 @@ module.exports = {
         rules: [
             {
                 test: /\.js$/,
+                //指定一个id  可能css也需要多线程打包
+                // use: 'Happypack/loader?id=js',
                 exclude: /node_modules/,
                 include: path.resolve('src'),
                 use: {
@@ -35,6 +40,19 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
     plugins: [
+        //  happyplugin配置
+        // new Happypack({
+        //     id: 'js',
+        //     use: [{
+        //         loader: 'babel-loader',
+        //         options: {
+        //             presets: [
+        //                 '@babel/preset-env',
+        //                 '@babel/preset-react',
+        //             ]
+        //         }
+        //     }]
+        // }),
         new HtmlWebpackPlugin({
             template: './public/index.html'
         }),
