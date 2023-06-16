@@ -36,8 +36,25 @@
 
 
 //抽离公共代码
-import  './a'
-import  './b'
+// import  './a'
+// import  './b'
 
-import $ from 'jquery'
-console.log($)
+// import $ from 'jquery'
+// console.log($)
+
+
+
+//懒加载
+
+let button = document.createElement('button')
+button.innerHTML = '按钮'
+//vue 的懒加载  react的懒加载
+button.addEventListener('click', function(){
+    console.log('click')
+    //es6 草案中的语法 jsonp实现动态加载文件
+    import('./source.js').then(data => {
+        console.log(data)
+    })
+})
+
+document.body.appendChild(button)

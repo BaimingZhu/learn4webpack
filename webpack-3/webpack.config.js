@@ -7,27 +7,27 @@ const Happypack = require('happypack')
 
 module.exports = {
     mode: 'development',//production development
-    optimization:{// commonChunkPlugins
-        splitChunks:{// 分割代码块
-            cacheGroups:{// 缓存组
-                common:{//公共的模块
-                    chunks:'initial',
-                    minSize:0,
-                    minChunks:2
-                },
-                vendor:{
-                    priority:1,
-                    test:/node_modules/,//用到这个目录下的代码抽离出来
-                    chunks: 'initial', 
-                    minSize:0,
-                    minChunks:2
-                }
-            }
-        }
-    },
+    // optimization:{// commonChunkPlugins
+    //     splitChunks:{// 分割代码块
+    //         cacheGroups:{// 缓存组
+    //             common:{//公共的模块
+    //                 chunks:'initial',//initial 非异步加载的初始chunk。 async 管理异步加载的chunk。 all 全都要。
+    //                 minSize:0,
+    //                 minChunks:2
+    //             },
+    //             vendor:{
+    //                 priority:1,
+    //                 test:/node_modules/,//用到这个目录下的代码抽离出来
+    //                 chunks: 'initial', 
+    //                 minSize:0,
+    //                 minChunks:2
+    //             }
+    //         }
+    //     }
+    // },
     entry: {
         index: './src/index.js',
-        other: './src/other.js'
+        // other: './src/other.js'
     },
     devServer: {
         //热更新
