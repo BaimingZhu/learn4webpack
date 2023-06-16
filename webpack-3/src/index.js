@@ -46,15 +46,25 @@
 
 //懒加载
 
-let button = document.createElement('button')
-button.innerHTML = '按钮'
-//vue 的懒加载  react的懒加载
-button.addEventListener('click', function(){
-    console.log('click')
-    //es6 草案中的语法 jsonp实现动态加载文件
-    import('./source.js').then(data => {
-        console.log(data)
-    })
-})
+// let button = document.createElement('button')
+// button.innerHTML = '按钮'
+// //vue 的懒加载  react的懒加载
+// button.addEventListener('click', function(){
+//     console.log('click')
+//     //es6 草案中的语法 jsonp实现动态加载文件
+//     import('./source.js').then(data => {
+//         console.log(data)
+//     })
+// })
 
-document.body.appendChild(button)
+// document.body.appendChild(button)
+
+
+import str from './source'
+console.log(str)
+if (module.hot) {
+    module.hot.accept('./source', () => {
+        let str = require('./source')
+        console.log('--', str.default)
+    })
+}

@@ -31,7 +31,7 @@ module.exports = {
     },
     devServer: {
         //热更新
-        hot: true,
+        hot: true,//启用热更新
         port: 3000,
         open: false,
         contentBase: './dist'
@@ -76,6 +76,8 @@ module.exports = {
         //         }
         //     }]
         // }),
+        new webpack.NamedModulesPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             template: './public/index.html'
         }),
