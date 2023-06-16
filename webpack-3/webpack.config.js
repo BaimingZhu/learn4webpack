@@ -6,9 +6,28 @@ const webpack = require('webpack')
 const Happypack = require('happypack')
 
 module.exports = {
-    mode: 'production',//production development
+    mode: 'development',//production development
+    optimization:{// commonChunkPlugins
+        splitChunks:{// 分割代码块
+            cacheGroups:{// 缓存组
+                common:{//公共的模块
+                    chunks:'initial',
+                    minSize:0,
+                    minChunks:2
+                },
+                vendor:{
+                    priority:1,
+                    test:/node_modules/,//用到这个目录下的代码抽离出来
+                    chunks: 'initial', 
+                    minSize:0,
+                    minChunks:2
+                }
+            }
+        }
+    },
     entry: {
-        index: './src/index.js'
+        index: './src/index.js',
+        other: './src/other.js'
     },
     devServer: {
         //热更新
@@ -40,7 +59,7 @@ module.exports = {
         ]
     },
     output: {
-        filename: 'budle.js',
+        filename: '[name].js',
         path: path.resolve(__dirname, 'dist')
     },
     plugins: [
