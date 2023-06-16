@@ -6,9 +6,13 @@ const webpack = require('webpack')
 const Happypack = require('happypack')
 
 module.exports = {
-    mode: 'development',
-    entry: './src/index.js',
+    mode: 'production',//production development
+    entry: {
+        index: './src/index.js'
+    },
     devServer: {
+        //热更新
+        hot: true,
         port: 3000,
         open: false,
         contentBase: './dist'
