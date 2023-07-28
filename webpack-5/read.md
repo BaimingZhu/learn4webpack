@@ -13,10 +13,11 @@
 > ```shell
 > #在zf-pack目录下  注意package.json中的bin配置以及后边是bin目录下的zf-pack.js 
 > npm link 
-> #在webpack-go5下
+> #在webpack-5下
 > npm link zf-pack 
 > 
 > #注意 这样npm link后可以直接使用zf-pack.cmd  就可以在webpack-go5下边运行了
+> 在 webpack-5 下运行npx zf-pack就可以运行了
 > ```
 >
 > 
