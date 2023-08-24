@@ -15,19 +15,30 @@ module.exports = {
         // } 
     },
     devtool: 'source-map',
+    watch:true,
     module: {
         rules: [
             {
-                test: /\.js$/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: [
-                            '@babel/preset-env'
-                        ]
+                test : /\.js$/,
+                use : {
+                    loader : 'banner-loader',
+                    options:{
+                        text : 'zhu',
+                        filename : path.resolve(__dirname, 'banner.js')
                     }
                 }
             }
+            // {
+            //     test: /\.js$/,
+            //     use: {
+            //         loader: 'babel-loader',
+            //         options: {
+            //             presets: [
+            //                 '@babel/preset-env'
+            //             ]
+            //         }
+            //     }
+            // }
         ]
 
 
