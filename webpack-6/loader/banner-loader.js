@@ -7,7 +7,7 @@ function loader(source) {
     //this.cacheable(false) //禁用缓存
 
     let options = loaderUtils.getOptions(this);
-    console.log('------', options)
+    // console.log('------', options)
     let cb = this.async()
     let schema = {
         type: 'object',

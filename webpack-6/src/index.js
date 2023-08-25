@@ -6,14 +6,20 @@ console.log('hello word')
 // !!什么都不要  只用inline-loader
 // require('-!inline-loader!./a.js')
 
-class Person{
-    constructor(){
-        this.name = 'zhu'
-    }
-    getName(){
-        return this.name
-    }
-}
+// class Person{
+//     constructor(){
+//         this.name = 'zhu'
+//     }
+//     getName(){
+//         return this.name
+//     }
+// }
 
-let p1 = new Person()
-console.log(p1.getName())
+// let p1 = new Person()
+// console.log(p1.getName())
+
+
+import p from './image.jpg'
+let img = document.createElement('img');
+img.src = p
+document.body.appendChild(img)

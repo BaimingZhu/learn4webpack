@@ -15,16 +15,29 @@ module.exports = {
         // } 
     },
     devtool: 'source-map',
-    watch:true,
+    // watch:true,
     module: {
         rules: [
             {
-                test : /\.js$/,
-                use : {
-                    loader : 'banner-loader',
-                    options:{
-                        text : 'zhu',
-                        filename : path.resolve(__dirname, 'banner.js')
+                test: /\.jpg$/,
+                //目的就是根据图片生成一个md5发射到dist目录下，file-loader还会返回当前的图片路径
+                /*    use:{
+                    loader: 'file-loader',
+                } */
+                use: {
+                    loader: 'url-loader', //url-loader会处理路径并且交给file-loader
+                    options: {
+                        limit: 200 * 1024
+                    }
+                }
+            },
+            {
+                test: /\.js$/,
+                use: {
+                    loader: 'banner-loader',
+                    options: {
+                        text: 'zhu',
+                        filename: path.resolve(__dirname, 'banner.js')
                     }
                 }
             }
