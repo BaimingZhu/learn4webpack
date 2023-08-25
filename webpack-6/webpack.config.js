@@ -19,6 +19,14 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.less$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'less-loader'
+                ]
+            },
+            {
                 test: /\.jpg$/,
                 //目的就是根据图片生成一个md5发射到dist目录下，file-loader还会返回当前的图片路径
                 /*    use:{

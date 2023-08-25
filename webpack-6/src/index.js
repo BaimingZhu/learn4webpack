@@ -23,3 +23,7 @@ import p from './image.jpg'
 let img = document.createElement('img');
 img.src = p
 document.body.appendChild(img)
+
+
+
+import './index.less'
