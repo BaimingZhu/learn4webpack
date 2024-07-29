@@ -17,7 +17,10 @@ module.exports = {
             new UglifyJsPlugin({
                 cache: true,//缓存
                 parallel: true,//并发打包
-                sourceMap: true//源码映射
+                sourceMap: true,//源码映射
+                // uglifyOptions : {
+                //     compress : true//弃用
+                // }
             }),
             new OptimizeCss()
         ]
@@ -28,7 +31,7 @@ module.exports = {
         contentBase: './build',
         // open: true//自动打开浏览器
     },
-    mode: 'development', //模式默认两种 production development
+    mode: 'production', //模式默认两种 production development
     entry: './src/index.js',//入口
     output: {
         filename: 'budle.[hash:4].js',//打包后的文件名
